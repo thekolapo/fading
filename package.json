@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "fading",
+=======
+  "name": "Fading",
+>>>>>>> f3bef6de76f720dd47523a9848fac8943886c241
   "version": "1.0.0",
   "description": "Repo for Paystack website",
   "main": "gulpfile.js",
