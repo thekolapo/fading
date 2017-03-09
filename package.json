@@ -1,7 +1,7 @@
 {
-  "name": "Paystack",
+  "name": "fading",
   "version": "1.0.0",
-  "description": "",
+  "description": "Repo for Paystack website",
   "main": "gulpfile.js",
   "dependencies": {},
   "devDependencies": {
@@ -18,5 +18,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/onyekvchi/fading.git"
+  },
+  "bugs": {
+    "url": "https://github.com/onyekvchi/fading/issues"
+  },
+  "homepage": "https://github.com/onyekvchi/fading#readme"
 }

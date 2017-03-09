@@ -259,3 +259,47 @@ h5 {
     height: 100%;
     z-index: 1;
 }
+// Isu's code 
+
+.places{
+    position: relative;
+    width: 100%;
+    height: 60%;
+}
+.t-v{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    object-fit: cover;
+    object-position: center;
+    border-radius: 2px;
+}
+.tablet{
+    position:absolute;
+    top:60%;
+    left:65%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 2px;
+}
+.s7{
+    position:absolute;
+    top: 82%;
+    left: 75%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 2px;  
+}
+.xbox{
+    position:absolute;
+    top: 82%;
+    left: 16%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 2px;
+}
+.platforms{
+    height: 40%; 
+    width:100%;
+}
