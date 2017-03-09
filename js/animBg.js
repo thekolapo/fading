@@ -1,4 +1,3 @@
-
 (function() {
 
     var width, height, largeHeader, canvas, ctx, circles, target, animateHeader = true;
@@ -75,12 +74,12 @@
         function init() {
             _this.pos.x = Math.random() * width;
             // _this.pos.y = height + Math.random() * 100;
-            _this.pos.y = (height*.25) + Math.random() * (height + 100);
-            
+            _this.pos.y = (height * .25) + Math.random() * (height + 100);
+
             _this.alpha = 0.0005;
             _this.scale = 0.1 + Math.random() * 0.3;
             _this.velocity = 0.1 + Math.random() * 0.2;
-            _this.maxAlpha = 0.1 + Math.random() * 0.09;
+            _this.maxAlpha = 0.1 + Math.random() * 0.45;
 
             _this.alphaIsIncreasing = true;
             _this.alphaSteps = Math.random() * 0.0004 + 0.0005;
@@ -89,7 +88,7 @@
         this.draw = function() {
             if (_this.alpha <= 0) {
                 init();
-            } else if (_this.alpha >= _this.maxAlpha){
+            } else if (_this.alpha >= _this.maxAlpha) {
                 _this.alphaIsIncreasing = false;
             }
 
@@ -98,23 +97,18 @@
             ctx.fillStyle = 'rgba(255,51,51,' + _this.alpha + ')';
             ctx.fill();
 
-            if(_this.alphaIsIncreasing) {
+            if (_this.alphaIsIncreasing) {
                 _this.alpha += _this.alphaSteps;
-            }else {
+            } else {
                 _this.alpha -= _this.alphaSteps;
             }
             _this.pos.y -= _this.velocity;
         };
     }
 
-    function Square(){
-
-    
-
-        this.draw = function(){
-            
-
-            if(_this.alphaIsIncreasing) _this.alpha += _this.alphaSteps;
+    function Square() {
+        this.draw = function() {
+            if (_this.alphaIsIncreasing) _this.alpha += _this.alphaSteps;
             else _this.alpha -= _this.alphaSteps;
             _this.pos.y -= _this.velocity;
 
