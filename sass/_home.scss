@@ -259,64 +259,84 @@ h5 {
     height: 100%;
     z-index: 1;
 }
-// Isu's code 
 
-.places{
+// Isu's code 
+.places {
     position: relative;
     width: 100%;
     height: 60%;
-    .elements{
-    position:absolute; 
-    object-fit: cover;
-    object-position: center;
-    border-radius: 2px;
+    .elements {
+        position: absolute;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 2px;
     }
-    .t-v{
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
-    
+    .t-v {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .tablet {
+        top: 60%;
+        left: 65%;
+    }
+    .s7 {
+        top: 82%;
+        left: 75%;
+    }
+    .xbox {
+        top: 82%;
+        left: 16%;
+    }
 }
-    .tablet{
-    top:60%;
-    left:65%;
-}
-    .s7{
-    top: 82%;
-    left: 75%; 
-}
-    .xbox{
-    top: 82%;
-    left: 16%;
-}
-    
-}
-.hero-devices{
+
+.hero-devices {
     top: 120px;
     margin-bottom: 100px;
-    position:relative;
-    width:100vw;
+    position: relative;
+    width: 100vw;
     min-height: 15vh;
 }
-.devices img{
-    width: 190px;;
-    position:absolute;
-    
+
+.platforms{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 200px 0 100px;
+
+    img{
+        height: 40px;
+        width: auto;
+        margin: 0 40px;
+    }
 }
-.appstore img{
-    left:150px;
+
+.devices img {
+    width: 190px;
+    ;
+    position: absolute;
 }
-.macstore img{
-    top:10px;
-    left:370px;
+
+.appstore img {
+    left: 150px;
 }
-.playstore img{
-    top:10px;
-    left:590px;
+
+.macstore img {
+    top: 10px;
+    left: 370px;
 }
-.steam img{
-    left:810px;
+
+.playstore img {
+    top: 10px;
+    left: 590px;
 }
-.windows img{
-   left:1030px; 
+
+.steam img {
+    left: 810px;
+}
+
+.windows img {
+    left: 1030px;
 }
