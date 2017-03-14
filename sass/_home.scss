@@ -241,8 +241,8 @@
     border-width:800;
     border-color: black; 
     margin-left: 120px;
-}
- .inner-circle{
+    
+    .inner-circle{
     position:absolute;
     top:50%;
     left:50%;
@@ -252,6 +252,8 @@
     border-radius: 50%;
     background-color:white;
     }
+}
+ 
 .end-text{
     position:relative;
     top: 13vh;
