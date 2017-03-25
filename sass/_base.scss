@@ -60,7 +60,7 @@ h5 {
     }
     &--full-width {
         max-width: 100%;
-        padding: 0;
+        padding: 0 20px;
     }
 }
 
@@ -71,9 +71,6 @@ h5 {
     flex-flow: row wrap;
     text-align: center;
     align-items: center;
-    .footer & {
-        justify-content: space-between;
-    }
 }
 
 .divider {
@@ -82,16 +79,14 @@ h5 {
 }
 
 .footer {
-    padding: 45px 0;
+    padding: 30px 0;
     font-size: 1.8rem;
+    background-color: $black;
 }
 
 .link {
-    color: #888;
+    color: white;
     transition: all .3s;
-    &:hover {
-        color: $black;
-    }
     i {
         margin-left: 5px;
         font-size: 1.4rem;
@@ -101,10 +96,10 @@ h5 {
         height: 3px;
         width: 3px;
         border-radius: 30px;
-        background-color: #ddd;
+        background-color: #666;
         display: inline-block;
-        margin-right: 15px;
-        margin-left: 15px;
+        margin-right: 9px;
+        margin-left: 9px;
         margin-bottom: 3px;
     }
     &--alt {

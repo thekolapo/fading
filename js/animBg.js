@@ -24,7 +24,7 @@
 
         // create particles
         circles = [];
-        for (var x = 0; x < width * 0.012; x++) {
+        for (var x = 0; x < width * 0.010; x++) {
             var c = new Circle();
             circles.push(c);
         }
@@ -68,18 +68,16 @@
         (function() {
             _this.pos = {};
             init();
-            console.log(_this);
         })();
 
         function init() {
             _this.pos.x = Math.random() * width;
-            // _this.pos.y = height + Math.random() * 100;
             _this.pos.y = (height * .25) + Math.random() * (height + 100);
 
             _this.alpha = 0.0005;
-            _this.scale = 0.1 + Math.random() * 0.3;
+            _this.scale = 0.1 + Math.random() * 0.4;
             _this.velocity = 0.1 + Math.random() * 0.2;
-            _this.maxAlpha = 0.1 + Math.random() * 0.45;
+            _this.maxAlpha = 0.1 + Math.random() * 0.25;
 
             _this.alphaIsIncreasing = true;
             _this.alphaSteps = Math.random() * 0.0004 + 0.0005;
@@ -93,7 +91,7 @@
             }
 
             ctx.beginPath();
-            ctx.arc(_this.pos.x, _this.pos.y, _this.scale * 25, 0, 2 * Math.PI, false);
+            ctx.arc(_this.pos.x, _this.pos.y, _this.scale * 20, 0, 3 * Math.PI, false);
             ctx.fillStyle = 'rgba(255,51,51,' + _this.alpha + ')';
             ctx.fill();
 
@@ -105,14 +103,4 @@
             _this.pos.y -= _this.velocity;
         };
     }
-
-    function Square() {
-        this.draw = function() {
-            if (_this.alphaIsIncreasing) _this.alpha += _this.alphaSteps;
-            else _this.alpha -= _this.alphaSteps;
-            _this.pos.y -= _this.velocity;
-
-        }
-    }
-
 })();
