@@ -46,17 +46,24 @@
         <div class="element element__tablet">
             <img src="images/frames/tablet.png">
             <div class="element__screen">
-                <video src="videos/demos/3.mp4" autoplay loop></video>
+                <!-- <video src="videos/demos/3.mp4" autoplay loop></video> -->
+                <img src="images/screenshots/3.png">
             </div>
         </div>
         <div class="element element__s7">
             <img src="images/frames/s7.png">
             <div class="element__screen">
-                <video src="videos/demos/2.mp4" autoplay loop></video>
+                <!-- <video src="videos/demos/2.mp4" autoplay loop></video> -->
+                <img src="images/screenshots/4.png">
             </div>
         </div>
         <div class="element element__xbox">
             <img src="images/frames/xbox.png">
+        </div>
+    </div>
+    <div class="elements elements--mobile">
+        <div class="container container--sm">
+            <img src="images/frames/everywhere.png">
         </div>
     </div>
     <div class="platforms">
@@ -98,15 +105,15 @@
             </div>
             <h2 class="title">Get notified.</h2>
             <p class="copy">We'll send you important updates about Fading so you don't miss out on anything.</p>
-            <form class="subscribe__form">
-                <input type="text" class="subscribe__field" placeholder="your email address">
-                <button class="subscribe__button">
+            <div class="subscribe__form" id="subscribe__form">
+                <input type="text" class="subscribe__field" id="email" placeholder="your email address">
+                <button class="subscribe__button" onclick="subscribe()">
                     <!-- <i class="ion-android-drafts"></i> -->
                     <div class="subscribe__button-svg">
                         <svg width="80px" height="54px" viewBox="0 0 80 54" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="#ff3333"><path d="M14,17 C11.7134,17 9.6185,17.7806 7.9375,19.0625 L42.375,51.40622 C43.1488,52.13282 44.8512,52.13282 45.625,51.40622 L80.0625,19.0625 C78.3815,17.7806 76.2866,17 74,17 L14,17 Z M5.3125,22.0625 C4.489,23.5171 4,25.2026 4,27 L4,61.00002 C4,66.54002 8.46,71.00002 14,71.00002 L74,71.00002 C79.54,71.00002 84,66.54002 84,61.00002 L84,27 C84,25.2026 83.511,23.5171 82.6875,22.0625 L48.375,54.31252 C45.9276,56.61062 42.0724,56.61062 39.625,54.31252 L5.3125,22.0625 Z" transform="translate(-4 -17)"/></g></g></svg>
                     </div>
                 </button>
-            </form>
+            </div>
         </div>
     </div>
     <div class="divider-wrap">
@@ -125,8 +132,35 @@
     </div>
     <script src="./js/vendor/rAF.js"></script>
     <script src="./js/vendor/lightbox-plus-jquery.min.js"></script>
+    <script src="./js/vendor/fetch.js"></script>
+    <script src="./js/vendor/promise.min.js"></script>
     <script src="./js/animBg.js"></script>
     <script src="./js/gallery.js"></script>
+    <script type="text/javascript">
+        function subscribe(){
+            // alert('submit');
+            var email = document.getElementById('email');
+            console.log(email);
+            fetch('https://ripe-dentist.glitch.me/mailchimp', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email_address: email.value,
+                    status: 'subscribed'
+                })
+            }).then(function(response){
+                console.log(response.json());
+                // show the person that they've been subscribed
+                email.value = '';
+            }).catch(function(error){
+                console.log(error);
+            })
+
+            return false;
+        }
+    </script>
     <!-- <script type="text/javascript">
         window.onscroll = function(){
             //parallax code
