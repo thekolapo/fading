@@ -16,7 +16,6 @@ gulp.task('connect', function() {
 /* *************
     CSS
 ************* */
-
 var sass = require('gulp-sass');
 var postcss = require('gulp-postcss');
 var scss = require('postcss-scss');
@@ -66,15 +65,9 @@ gulp.task('css', function() {
 });
 
 
-
-
-
-// /* *************
-//     HTML
+/* *************
+   HTML
 // ************* */
-
-// var minifyHTML = require('gulp-minify-html');
-
 var htmlFiles = ['*.html'];
 
 // gulp.task('html', function() {
@@ -97,7 +90,22 @@ gulp.task('html', function() {
         .pipe(connect.reload());
 });
 
+
+/* **************
+    JS
+************** */
+var uglify = require('gulp-uglify');
+var concat = require('gulp-concat');
+
 gulp.task('js', function() {
+    gulp.src('js/vendor/*.js')
+        .pipe(concat('vendor.build.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('js/'));
+    gulp.src('js/app/*.js')
+        .pipe(concat('build.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('js/'));
     gulp.src('js/*.js')
         .pipe(connect.reload());
 });
@@ -107,8 +115,6 @@ gulp.task('js', function() {
 /* *************
     WATCH
 ************* */
-
-
 gulp.task('watch', function() {
     gulp.watch(sassFiles, ['css']);
     gulp.watch('*.js', ['js']);
@@ -119,28 +125,4 @@ gulp.task('watch', function() {
 /* *************
     DEFAULT
 ************* */
-
 gulp.task('default', ['connect', 'css', 'watch']);
-
-
-/* *************
-    SVG
-************* */
-
-
-var svgSprite = require('gulp-svg-sprite');
-var svgConfig = {
-    mode: {
-        css: {
-            render: {
-                css: true
-            }
-        }
-    }
-};
-
-gulp.task('svg', function() {
-    gulp.src('**/*.svg', { cwd: 'images/icons/source' })
-        .pipe(svgSprite(svgConfig))
-        .pipe(gulp.dest('images/icons'));
-});
