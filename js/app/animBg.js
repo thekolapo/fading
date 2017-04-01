@@ -64,6 +64,14 @@
     function Circle() {
         var _this = this;
 
+        var COLORS = [
+            { r: 103, g: 204, b: 252 },
+            { r: 255, g: 199, b: 115 }, 
+            { r: 61, g: 240, b: 157 },
+            { r: 255, g: 125, b: 122 }
+        ];
+        var color;
+
         // constructor
         (function() {
             _this.pos = {};
@@ -76,11 +84,12 @@
 
             _this.alpha = 0.0005;
             _this.scale = 0.1 + Math.random() * 0.5;
-            _this.velocity = 0.1 + Math.random() * 0.2;
-            _this.maxAlpha = 0.1 + Math.random() * 0.25;
+            _this.velocity = 0.1 + Math.random() * 0.25;
+            _this.maxAlpha = 0.1 + Math.random() * 0.75;
 
             _this.alphaIsIncreasing = true;
             _this.alphaSteps = Math.random() * 0.0004 + 0.0005;
+            _this.color = COLORS[Math.floor(Math.random() * (COLORS.length))];
         }
 
         this.draw = function() {
@@ -92,7 +101,7 @@
 
             ctx.beginPath();
             ctx.arc(_this.pos.x, _this.pos.y, _this.scale * 20, 0, 3 * Math.PI, false);
-            ctx.fillStyle = 'rgba(255,51,51,' + _this.alpha + ')';
+            ctx.fillStyle = 'rgba('+ _this.color.r + ',' + _this.color.g + ',' + _this.color.b + ',' + _this.alpha + ')';
             ctx.fill();
 
             if (_this.alphaIsIncreasing) {

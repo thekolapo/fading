@@ -96,18 +96,15 @@ gulp.task('html', function() {
 ************** */
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
+var pump = require('pump');
 
-gulp.task('js', function() {
-    gulp.src('js/vendor/*.js')
-        .pipe(concat('vendor.build.js'))
-        .pipe(uglify())
-        .pipe(gulp.dest('js/'));
-    gulp.src('js/app/*.js')
-        .pipe(concat('build.js'))
-        .pipe(uglify())
-        .pipe(gulp.dest('js/'));
-    gulp.src('js/*.js')
-        .pipe(connect.reload());
+gulp.task('js', function(cb) {
+    pump([
+        gulp.src(['js/vendor/*.js', 'js/app/*js']),
+        concat('build.js'),
+        uglify(),
+        gulp.dest('js')
+    ], cb)
 });
 
 
@@ -117,7 +114,7 @@ gulp.task('js', function() {
 ************* */
 gulp.task('watch', function() {
     gulp.watch(sassFiles, ['css']);
-    gulp.watch('*.js', ['js']);
+    gulp.watch('js/**/*.js', ['js']);
     gulp.watch(htmlFiles, ['html']);
 });
 
@@ -125,4 +122,4 @@ gulp.task('watch', function() {
 /* *************
     DEFAULT
 ************* */
-gulp.task('default', ['connect', 'css', 'watch']);
+gulp.task('default', ['connect', 'js', 'css', 'watch']);
