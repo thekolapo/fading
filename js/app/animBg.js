@@ -24,7 +24,7 @@
 
         // create particles
         circles = [];
-        for (var x = 0; x < width * 0.010; x++) {
+        for (var x = 0; x < width * 0.012; x++) {
             var c = new Circle();
             circles.push(c);
         }
@@ -75,7 +75,7 @@
             _this.pos.y = (height * .25) + Math.random() * (height + 100);
 
             _this.alpha = 0.0005;
-            _this.scale = 0.1 + Math.random() * 0.4;
+            _this.scale = 0.1 + Math.random() * 0.5;
             _this.velocity = 0.1 + Math.random() * 0.2;
             _this.maxAlpha = 0.1 + Math.random() * 0.25;
 
