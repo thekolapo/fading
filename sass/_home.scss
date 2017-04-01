@@ -42,6 +42,12 @@
         animation-fill-mode: forwards;
         animation-delay: 1s;
         opacity: 0;
+        width: 450px;
+        margin: auto;
+        font-size: 1.9rem;
+        @include screen(small) {
+            width: 100%;
+        }
     }
     .subscribe & {
         margin-top: 30px;

@@ -85,7 +85,7 @@
             _this.alpha = 0.0005;
             _this.scale = 0.1 + Math.random() * 0.5;
             _this.velocity = 0.1 + Math.random() * 0.25;
-            _this.maxAlpha = 0.1 + Math.random() * 0.75;
+            _this.maxAlpha = 0.1 + Math.random() * 0.7;
 
             _this.alphaIsIncreasing = true;
             _this.alphaSteps = Math.random() * 0.0004 + 0.0005;
@@ -100,7 +100,7 @@
             }
 
             ctx.beginPath();
-            ctx.arc(_this.pos.x, _this.pos.y, _this.scale * 20, 0, 3 * Math.PI, false);
+            ctx.arc(_this.pos.x, _this.pos.y, _this.scale * 18, 0, 3 * Math.PI, false);
             ctx.fillStyle = 'rgba('+ _this.color.r + ',' + _this.color.g + ',' + _this.color.b + ',' + _this.alpha + ')';
             ctx.fill();
 
