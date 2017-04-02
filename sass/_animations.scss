@@ -108,3 +108,7 @@
     animation: fadeIn 1s ease-in-out;
     animation-fill-mode: forwards;
 }
+
+#loading-svg{
+    animation: rotate 1s infinite linear;
+}

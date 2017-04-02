@@ -114,7 +114,7 @@ gulp.task('js', function(cb) {
 ************* */
 gulp.task('watch', function() {
     gulp.watch(sassFiles, ['css']);
-    gulp.watch('js/**/*.js', ['js']);
+    gulp.watch('js/app/*.js', ['js']);
     gulp.watch(htmlFiles, ['html']);
 });
 
@@ -122,4 +122,4 @@ gulp.task('watch', function() {
 /* *************
     DEFAULT
 ************* */
-gulp.task('default', ['connect', 'js', 'css', 'watch']);
+gulp.task('default', ['connect', 'css', 'watch']);

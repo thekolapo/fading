@@ -159,18 +159,17 @@
             <p class="copy">We'll send you important updates about Fading so you don't miss out on anything.</p>
             <div class="subscribe__form" id="subscribe__form">
                 <input type="text" class="subscribe__field" id="email" placeholder="your email address">
-                <button class="subscribe__button" onclick="subscribe()">
-                    <!-- <i class="ion-android-drafts"></i> -->
+                <button class="subscribe__button">
                     <div class="subscribe__button-svg">
-                        <svg width="80px" height="54px" viewBox="0 0 80 54" xmlns="http://www.w3.org/2000/svg">
-                            <g fill="none" fill-rule="evenodd">
-                                <g fill="#ff3333">
-                                    <path d="M14,17 C11.7134,17 9.6185,17.7806 7.9375,19.0625 L42.375,51.40622 C43.1488,52.13282 44.8512,52.13282 45.625,51.40622 L80.0625,19.0625 C78.3815,17.7806 76.2866,17 74,17 L14,17 Z M5.3125,22.0625 C4.489,23.5171 4,25.2026 4,27 L4,61.00002 C4,66.54002 8.46,71.00002 14,71.00002 L74,71.00002 C79.54,71.00002 84,66.54002 84,61.00002 L84,27 C84,25.2026 83.511,23.5171 82.6875,22.0625 L48.375,54.31252 C45.9276,56.61062 42.0724,56.61062 39.625,54.31252 L5.3125,22.0625 Z" transform="translate(-4 -17)" />
-                                </g>
-                            </g>
+                        <svg id="envelope-svg" width="80px" height="54px" viewBox="0 0 80 54" xmlns="http://www.w3.org/2000/svg">
+                            <g fill="none" fill-rule="evenodd"><g fill="#ff3333"><path d="M14,17 C11.7134,17 9.6185,17.7806 7.9375,19.0625 L42.375,51.40622 C43.1488,52.13282 44.8512,52.13282 45.625,51.40622 L80.0625,19.0625 C78.3815,17.7806 76.2866,17 74,17 L14,17 Z M5.3125,22.0625 C4.489,23.5171 4,25.2026 4,27 L4,61.00002 C4,66.54002 8.46,71.00002 14,71.00002 L74,71.00002 C79.54,71.00002 84,66.54002 84,61.00002 L84,27 C84,25.2026 83.511,23.5171 82.6875,22.0625 L48.375,54.31252 C45.9276,56.61062 42.0724,56.61062 39.625,54.31252 L5.3125,22.0625 Z" transform="translate(-4 -17)" /></g></g>
                         </svg>
+                        <svg id="loading-svg" xmlns="http://www.w3.org/2000/svg" fill="#999" viewBox="0 0 44 44"><path d="M40.687 20.738h-.23l-5.86.014-.284.004c-.9.07-1.61.826-1.607 1.745 0 .967.783 1.748 1.75 1.752h6.274c.902-.08 1.61-.836 1.608-1.758-.002-.934-.73-1.7-1.65-1.756zm-8.49-5.443l.004-.004 4.213-4.202.222-.226c.582-.69.543-1.727-.107-2.377-.66-.658-1.718-.686-2.412-.075l-.16.164-4.134 4.15-.198.2c-.585.687-.554 1.72.097 2.37.684.683 1.793.683 2.477 0zm-9.693-12.61c-.936 0-1.703.728-1.76 1.647v.232l.017 5.85v.284c.076.9.83 1.61 1.75 1.61.967 0 1.75-.784 1.75-1.75v-.007l.004-5.943V4.29c-.08-.902-.84-1.606-1.76-1.606zM15.29 12.806l-4.205-4.203-.226-.225c-.693-.58-1.73-.545-2.38.106-.663.66-.688 1.72-.078 2.41l.163.163 4.155 4.124.2.2c.69.586 1.726.55 2.375-.096.685-.687.685-1.79.002-2.474l-.006-.007zm-4.597 11.426c.902-.07 1.61-.825 1.61-1.744 0-.97-.783-1.75-1.75-1.752H4.278c-.9.08-1.608.836-1.606 1.755 0 .937.73 1.7 1.65 1.758h.232l5.86-.018h.28zm2.117 5.46l-.005.006-4.21 4.203-.223.222c-.58.692-.544 1.73.107 2.377.662.66 1.717.688 2.41.08l.164-.166 4.132-4.15.2-.2c.584-.687.552-1.723-.098-2.37-.687-.683-1.793-.683-2.478-.004zm11.435 4.6c-.072-.9-.83-1.61-1.747-1.61-.97 0-1.752.784-1.752 1.75v.006l-.003 5.944v.317c.08.9.838 1.606 1.76 1.606.937 0 1.7-.73 1.76-1.648v-.232l-.018-5.85v-.283zm12.197-.36l-4.156-4.126-.2-.2c-.688-.586-1.724-.554-2.374.097-.684.683-.685 1.79 0 2.474l.005.007 4.205 4.204.226.22c.694.582 1.73.546 2.38-.104.662-.664.687-1.72.08-2.41l-.166-.164z"/></svg>
                     </div>
                 </button>
+            </div>
+            <div class="subscribe__callback">
+                <p class="callback-msg"></p>
             </div>
         </div>
     </div>
@@ -189,48 +188,6 @@
         </div>
     </div>
     <script src="./js/build.js"></script>
-    <script type="text/javascript">
-    function subscribe() {
-        // alert('submit');
-        var email = document.getElementById('email');
-        console.log(email);
-        fetch('https://ripe-dentist.glitch.me/mailchimp', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                email_address: email.value,
-                status: 'subscribed'
-            })
-        }).then(function(response) {
-            console.log(response.json());
-            // show the person that they've been subscribed
-            email.value = '';
-        }).catch(function(error) {
-            console.log(error);
-        })
-
-        return false;
-    }
-    </script>
-    <!-- <script type="text/javascript">
-        window.onscroll = function(){
-            //parallax code
-            var masthead = document.getElementById('large-header');
-            var shift = getScrollPercent(10);
-            console.log(shift);
-            alert('yo');
-        };
-
-        function getScrollPercent(val) {
-            var h = document.documentElement,
-                b = document.body,
-                st = 'scrollTop',
-                sh = 'scrollHeight';
-            return h[st] || b[st] / ((h[sh] || b[sh]) - h.clientHeight) * val;
-        }
-    </script> -->
 </body>
 
 </html>
